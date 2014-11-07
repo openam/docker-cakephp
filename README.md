@@ -5,7 +5,7 @@ It is based on [Tutum Dockerfile](https://github.com/tutumcloud/tutum-docker-php
 1. First install docker on your computer with [official doc](https://docs.docker.com/installation/#installation).
    On a mac, it will install boot2docker (a small vm) and you'll be able to launch Boot2docker app in the `Applications` folder that opens a Terminal bash.
 
-2. Clone this repo anywhere in your computer, go in the folder and launch `docker build -t cake17/cakephp`
+2. Clone this repo anywhere in your computer, go in the folder and launch `docker build -t cake17/cakephp .`
    You'll then have an image named `cake17/cakephp` on your computer with all libs
    needed to run CakePHP 3.x apps : ubuntu, apache2, mcrypt, etc...
    When it will be stable, I'll put this repo in the DockHub, so this 2. will not be necessary.
@@ -18,7 +18,7 @@ It is based on [Tutum Dockerfile](https://github.com/tutumcloud/tutum-docker-php
 	   # Add your commands here if necessary, for example a composer install
        RUN composer install
 
-   Then build an image `docker build -t cake17/your-app-name`
+   Then build an image `docker build -t cake17/your-app-name .`
 
 4. Then run your app : `docker run --name your-container-name -d -p 80:80 cake17/your-app-name`
 
