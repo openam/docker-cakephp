@@ -1,6 +1,6 @@
 # Using Docker with CakePHP 3.x applications #
 
-Still under dev...
+It is based on [Tutum Dockerfile](https://github.com/tutumcloud/tutum-docker-php). Still under dev...
 
 1. First install docker on your computer with [official doc](https://docs.docker.com/installation/#installation).
    On a mac, it will install boot2docker (a small vm) and you'll be able to launch Boot2docker app in the `Applications` folder that opens a Terminal bash.

@@ -1,3 +1,4 @@
+# based on Tutum Dockerfile : https://github.com/tutumcloud/tutum-docker-php
 FROM ubuntu:trusty
 
 MAINTAINER cake17 <cake17@cake-websites.com>
