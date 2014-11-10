@@ -32,7 +32,7 @@ Still under dev...
 
    *Without Mysql*
 
-        docker run -d --name your-container -v /local/path/to/app/:/var/www/html/ -p 80:80 --link db:mysql yourname/your-app-name
+        docker run -d --name your-container -v /local/path/to/app/:/var/www/html/ -p 80:80 yourname/your-app-name
 
    *With Mysql*
 
