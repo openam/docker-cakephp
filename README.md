@@ -34,7 +34,7 @@ Still under dev...
 
         docker run -d --name your-container -v /local/path/to/app/:/var/www/html/ -p 80:80 yourname/your-app-name
 
-   *With [Mysql](https://registry.hub.docker.com/_/mysql)*
+   *With [Official Mysql Image](https://registry.hub.docker.com/_/mysql)*
 
         # Run a mysql container first
         docker run --name db -e MYSQL_ROOT_PASSWORD=root-password -e MYSQL_USER=yourname -e MYSQL_PASSWORD=yourpassword -e MYSQL_DATABASE=db_name1 -e MYSQL_DATABASE=db_name2 -d mysql
@@ -47,8 +47,8 @@ Still under dev...
 
    To create your tables. You can use the [Migrations cakephp-plugin](https://github.com/cakephp/migrations).
 
-       # get CONTAINER_APP_ID with docker ps
-       docker exec -it CONTAINER_APP_ID ./bin/cake migrations migrate
+        # get CONTAINER_APP_ID with docker ps
+        docker exec -it CONTAINER_APP_ID ./bin/cake migrations migrate
 
 ## TO DO ##
 
