@@ -5,7 +5,7 @@ and on [php official Dockerfile](https://github.com/docker-library/php)
 
 Still under dev...
 
-1. **First install docker on your computer with [official doc](https://docs.docker.com/installation/#installation).**
+1. **First install docker on your computer with the [official doc](https://docs.docker.com/installation/#installation).**
 
    On a mac, it will install boot2docker (a small vm) and you'll be able to launch Boot2docker app in the `Applications` folder that opens a Terminal bash.
 
@@ -34,9 +34,9 @@ Still under dev...
 
         docker run -d --name your-container -v /local/path/to/app/:/var/www/html/ -p 80:80 yourname/your-app-name
 
-   *With Mysql*
+   *With [Mysql](https://registry.hub.docker.com/_/mysql)*
 
-        # Run [official mysql](https://registry.hub.docker.com/_/mysql) container first
+        # Run a mysql container first
         docker run --name db -e MYSQL_ROOT_PASSWORD=root-password -e MYSQL_USER=yourname -e MYSQL_PASSWORD=yourpassword -e MYSQL_DATABASE=db_name1 -e MYSQL_DATABASE=db_name2 -d mysql
         # Make a `docker inspect CONTAINER_MYSQL_ID | grep IPAddress` and change the host in the datasources in your app.php
         # And run your container with Mysql container linked
@@ -47,10 +47,11 @@ Still under dev...
 
    To create your tables. You can use the [Migrations cakephp-plugin](https://github.com/cakephp/migrations).
 
-      # get CONTAINER_APP_ID with docker ps
-      docker exec -it CONTAINER_APP_ID ./bin/cake migrations migrate
+       # get CONTAINER_APP_ID with docker ps
+       docker exec -it CONTAINER_APP_ID ./bin/cake migrations migrate
 
-TO DO
+## TO DO ##
+
 - How to fix permissions on tmp/ and logs/ folders
 - mysql : create multiple databases on build and grant for one custom user
 - mysql : fix the host to be localhost and not a random address given by docker
