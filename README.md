@@ -37,7 +37,7 @@ Still under dev...
    *With Mysql*
 
         # Run [official mysql](https://registry.hub.docker.com/_/mysql) container first
-        docker run --name db -e MYSQL_ROOT_PASSWORD=root-password -e MYSQL_USER=yourname -e MYSQL_PASSWORD=yourpassword -d mysql
+        docker run --name db -e MYSQL_ROOT_PASSWORD=root-password -e MYSQL_USER=yourname -e MYSQL_PASSWORD=yourpassword -e MYSQL_DATABASE=db_name1 -e MYSQL_DATABASE=db_name2 -d mysql
         # Make a `docker inspect CONTAINER_ID | grep IPAddress` and change the host in the datasources in your app.php
         # And run your container with Mysql container linked
         docker run -d --name your-container -v /local/path/to/app/:/var/www/html/ -p 80:80 --link db:mysql yourname/your-app-name
