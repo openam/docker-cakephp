@@ -30,18 +30,18 @@ Still under dev...
 
 4. **Run your app**
 
-   Without Mysql
+   *Without Mysql*
 
-       docker run -d --name your-container -v /local/path/to/app/:/var/www/html/ -p 80:80 --link db:mysql yourname/your-app-name
+           docker run -d --name your-container -v /local/path/to/app/:/var/www/html/ -p 80:80 --link db:mysql yourname/your-app-name
 
-   With Mysql
+   *With Mysql*
 
-       # Run [official mysql](https://registry.hub.docker.com/_/mysql) container first
-       docker run --name db -e MYSQL_ROOT_PASSWORD=root-password -e MYSQL_USER=yourname -e MYSQL_PASSWORD=yourpassword -d mysql
-       # Make a `docker inspect CONTAINER_ID | grep IPAddress` and change the host in the datasources in your app.php
-       # And run your container with Mysql container linked
-       docker run -d --name your-container -v /local/path/to/app/:/var/www/html/ -p 80:80 --link db:mysql yourname/your-app-name
-       # in mode production you can omit the -v part as you won't change your files on the fly
+           # Run [official mysql](https://registry.hub.docker.com/_/mysql) container first
+           docker run --name db -e MYSQL_ROOT_PASSWORD=root-password -e MYSQL_USER=yourname -e MYSQL_PASSWORD=yourpassword -d mysql
+           # Make a `docker inspect CONTAINER_ID | grep IPAddress` and change the host in the datasources in your app.php
+           # And run your container with Mysql container linked
+           docker run -d --name your-container -v /local/path/to/app/:/var/www/html/ -p 80:80 --link db:mysql yourname/your-app-name
+           # in mode production you can omit the -v part as you won't change your files on the fly
 
 
 ## License ##
