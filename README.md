@@ -1,4 +1,4 @@
-# Using Docker with CakePHP 3.x applications #
+## Using Docker with CakePHP 3.x applications ##
 
 It is based on [Tutum Dockerfile](https://github.com/tutumcloud/tutum-docker-php)
 and on [php official Dockerfile](https://github.com/docker-library/php)
