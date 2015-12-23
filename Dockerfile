@@ -1,8 +1,6 @@
-# based on Tutum Dockerfile : https://github.com/tutumcloud/tutum-docker-php
-# and on official php Dockerfile : https://github.com/docker-library/php
 FROM ubuntu:trusty
 
-MAINTAINER cake17 <cake17@cake-websites.com>
+MAINTAINER Michael Tuttle <openam@gmail.com>
 
 # Install base packages
 ENV DEBIAN_FRONTEND noninteractive
@@ -27,10 +25,11 @@ RUN sed -i "s/variables_order.*/variables_order = \"EGPCS\"/g" /etc/php5/apache2
 RUN php5enmod mcrypt
 
 # Apache2 config
-RUN rm -rf /var/www/html && mkdir -p /var/lock/apache2 /var/run/apache2 /var/log/apache2 /var/www/html && chown -R www-data:www-data /var/lock/apache2 /var/run/apache2 /var/log/apache2 /var/www/html
+RUN rm -rf /var/www/html && \
+    mkdir -p /var/lock/apache2 /var/run/apache2 /var/log/apache2 /var/www/html && \
+    chown -R www-data:www-data /var/lock/apache2 /var/run/apache2 /var/log/apache2 /var/www/html && \
+    mv /etc/apache2/apache2.conf /etc/apache2/apache2.conf.dist
 
-# Add Apache2 conf
-RUN mv /etc/apache2/apache2.conf /etc/apache2/apache2.conf.dist
 ADD apache2.conf /etc/apache2/apache2.conf
 
 # activate Mod Rewrite for Apache
@@ -41,8 +40,8 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 # export COMPOSER_HOME=/app;
 
 # Add an ssh directory with good permission (for private repo)
-RUN mkdir /root/.ssh
-RUN chmod 700 /root/.ssh
+RUN mkdir /root/.ssh && \
+    chmod 700 /root/.ssh
 
 # Add image configuration and scripts
 ADD run.sh /run.sh
